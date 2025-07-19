@@ -22,4 +22,9 @@ export class ProvidersController {
   public findById(@Payload() id: string): Promise<Provider | null> {
     return this.providerService.findById(id);
   }
+
+  @MessagePattern('providers.findByIds')
+  public findByIds(@Payload() ids: string[]): Promise<Provider[] | null> {
+    return this.providerService.findByIds(ids);
+  }
 }

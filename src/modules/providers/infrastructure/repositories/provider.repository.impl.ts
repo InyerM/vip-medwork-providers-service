@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
-import { Repository } from 'typeorm';
+import { In, Repository } from 'typeorm';
 
 // Domain
 import { Provider } from '@/modules/providers/domain/models/provider.model';
@@ -30,6 +30,11 @@ export class ProviderRepositoryImpl implements ProviderRepository {
 
   public async findAll(): Promise<Provider[]> {
     const entities = await this.providerRepository.find();
+    return entities.map((entity) => ProviderMapper.toDomain(entity));
+  }
+
+  public async findByIds(ids: string[]): Promise<Provider[]> {
+    const entities = await this.providerRepository.find({ where: { id: In(ids) } });
     return entities.map((entity) => ProviderMapper.toDomain(entity));
   }
 }

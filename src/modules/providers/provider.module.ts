@@ -10,6 +10,7 @@ import { ProviderRepositoryImpl } from './infrastructure/repositories/provider.r
 import { CreateProviderUseCase } from './application/use-cases/create-provider.use-case';
 import { ProvidersService } from './application/services/providers.service';
 import { FindByIdUseCase } from './application/use-cases/find-by-id.use-case';
+import { FindByIdsUseCase } from './application/use-cases/find-by-ids.use-case';
 
 // Interfaces
 import { ProvidersController } from './interfaces/controllers/providers.controller';
@@ -24,6 +25,7 @@ import { PROVIDER_INJECTION_TOKEN } from './domain/constants/provider-injection-
     ProviderRepositoryImpl,
     CreateProviderUseCase,
     FindByIdUseCase,
+    FindByIdsUseCase,
     ProvidersService,
     {
       provide: PROVIDER_INJECTION_TOKEN,

@@ -4,6 +4,7 @@ import { Injectable } from '@nestjs/common';
 // Application
 import { CreateProviderUseCase } from '../use-cases/create-provider.use-case';
 import { FindByIdUseCase } from '../use-cases/find-by-id.use-case';
+import { FindByIdsUseCase } from '../use-cases/find-by-ids.use-case';
 import { CreateProviderDto } from '../dto/create-provider.dto';
 
 // Domain
@@ -14,6 +15,7 @@ export class ProvidersService {
   public constructor(
     private readonly createProviderUseCase: CreateProviderUseCase,
     private readonly findByIdUseCase: FindByIdUseCase,
+    private readonly findByIdsUseCase: FindByIdsUseCase,
   ) {}
 
   public create(dto: CreateProviderDto): Promise<Provider> {
@@ -22,5 +24,9 @@ export class ProvidersService {
 
   public findById(id: string): Promise<Provider | null> {
     return this.findByIdUseCase.execute(id);
+  }
+
+  public findByIds(ids: string[]): Promise<Provider[] | null> {
+    return this.findByIdsUseCase.execute(ids);
   }
 }
