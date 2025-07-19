@@ -11,6 +11,7 @@ import { CreateProviderUseCase } from './application/use-cases/create-provider.u
 import { ProvidersService } from './application/services/providers.service';
 import { FindByIdUseCase } from './application/use-cases/find-by-id.use-case';
 import { FindByIdsUseCase } from './application/use-cases/find-by-ids.use-case';
+import { FindAllUseCase } from './application/use-cases/find-all.use-case';
 
 // Interfaces
 import { ProvidersController } from './interfaces/controllers/providers.controller';
@@ -26,6 +27,7 @@ import { PROVIDER_INJECTION_TOKEN } from './domain/constants/provider-injection-
     CreateProviderUseCase,
     FindByIdUseCase,
     FindByIdsUseCase,
+    FindAllUseCase,
     ProvidersService,
     {
       provide: PROVIDER_INJECTION_TOKEN,

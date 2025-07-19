@@ -27,4 +27,9 @@ export class ProvidersController {
   public findByIds(@Payload() ids: string[]): Promise<Provider[] | null> {
     return this.providerService.findByIds(ids);
   }
+
+  @MessagePattern('providers.findAll')
+  public findAll(): Promise<Provider[] | null> {
+    return this.providerService.findAll();
+  }
 }
